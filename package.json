@@ -1,0 +1,39 @@
+{
+  "name": "automation_tests",
+  "version": "4.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "allure-commandline": "^2.13.0",
+    "chai": "^4.2.0",
+    "del": "^5.1.0",
+    "imap": "^0.8.19",
+    "imap-simple": "^5.0.0",
+    "log4js": "^6.2.1",
+    "mail-notifier": "^0.5.0",
+    "moment": "^2.25.3",
+    "mysql": "^2.18.1",
+    "node-gmail-api": "^0.6.1",
+    "q": "^1.5.1",
+    "sync-mysql": "^3.0.1",
+    "webdriverio": "^6.1.12"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/register": "^7.9.0",
+    "@wdio/allure-reporter": "^6.1.12",
+    "@wdio/cli": "^6.1.12",
+    "@wdio/cucumber-framework": "^6.1.8",
+    "@wdio/local-runner": "^6.1.12",
+    "@wdio/selenium-standalone-service": "^6.0.16",
+    "@wdio/spec-reporter": "^6.1.12",
+    "@wdio/sync": "^6.1.8"
+  },
+  "scripts": {
+    "test": "wdio"
+  },
+  "author": "QA Digital Development",
+  "license": "ISC"
+}

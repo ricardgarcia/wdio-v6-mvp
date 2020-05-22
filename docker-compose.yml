@@ -1,0 +1,61 @@
+version: '3'
+
+services:
+  wdio:
+    build: .
+    image: wdio-v6
+    depends_on:
+      - firefox
+      - chrome
+      - hub
+    volumes:
+      - ./allure-report:/app/allure-report
+      - ./errorShots:/app/errorShots
+  hub:
+    image: elgalu/selenium
+    volumes:
+      - /dev/shm:/dev/shm
+    privileged: true
+    environment:
+      - SELENIUM_HUB_HOST=hub
+      - SELENIUM_HUB_PORT=4444
+      - GRID=true
+      - CHROME=false
+      - FIREFOX=false
+
+  chrome:
+    image: elgalu/selenium
+    depends_on:
+      - hub
+    volumes:
+      - /dev/shm:/dev/shm
+    privileged: true
+    environment:
+      - NOVNC=false
+      - SELENIUM_HUB_HOST=hub
+      - SELENIUM_HUB_PORT=4444
+      - SELENIUM_NODE_HOST=chrome
+      - SCREEN_WIDTH=1920
+      - SCREEN_HEIGHT=1080
+      - VIDEO=false
+      - GRID=false
+      - CHROME=true
+      - FIREFOX=false
+
+  firefox:
+    image: elgalu/selenium
+    volumes:
+      - /dev/shm:/dev/shm
+    privileged: true
+    environment:
+      - NOVNC=false
+      - SELENIUM_HUB_HOST=hub
+      - SELENIUM_HUB_PORT=4444
+      - SELENIUM_NODE_HOST=firefox
+      - SCREEN_WIDTH=1920
+      - SCREEN_HEIGHT=1080
+      - VIDEO=false
+      - GRID=false
+      - CHROME=false
+      - FIREFOX=true
+
