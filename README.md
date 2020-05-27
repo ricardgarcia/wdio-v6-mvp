@@ -21,7 +21,7 @@ yarn test --hostname hub --port 4444 --spec features/access.feature
 
 ## With Docker
 ```
-docker-compose build && docker-compose -f docker-compose.local.yml run --rm -e URL="google.com" -e SELENIUM_BROWSER="chrome" -e DEBUG="true" wdio yarn test --hostname hub --port 4444 --spec features/access.feature
+docker-compose build && docker-compose -f docker-compose.yml run --rm -e URL="google.com" -e SELENIUM_BROWSER="chrome" -e DEBUG="true" wdio npm test
 ```
 
 In order to remove all docker working containers:
